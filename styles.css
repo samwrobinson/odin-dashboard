@@ -42,8 +42,8 @@ button {
     width: 100%;
     min-height: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: minmax(225px, 1fr) minmax(600px, 4fr);
+    grid-template-rows: minmax(100px, 1fr) minmax(400px, 4fr);
     border: solid black 1px;
 }
 /* Header groupings and base layout */
@@ -156,7 +156,8 @@ button {
 .main {
     display: grid;
     width: 95%;
-    grid-template-columns: minmax(150px, 2.5fr) minmax(50px, 1fr);
+    height: 95%;
+    grid-template-columns: minmax(150px, 2.5fr) minmax(50px, .8fr);
     gap: 15px;
     margin: 2.5%;
 }
@@ -190,14 +191,22 @@ button {
     display: flex;
     flex-direction: column;
 }
+.right-sidebar h3 {
+    font-size: .8rem;
+}
 .announcments {
-    border: 1px solid black;
-    margin-top: 1rem;
+    border: 1px solid var(--header-color);
+    background-color: var(--header-color);
+    box-shadow: var(--header-shadow);
+    border-radius: 10px;
+    margin-top: .5rem;
     max-height: 50%;
     overflow: scroll;
 }
 .announcment-item {
-    margin: 5% 5% 5% 0;
+    width: 90%;
+    margin: 5% 5% 5% 5%;
+    font-size: .7rem;
 }
 .announcment-item>* {
     margin: 7px;
@@ -242,5 +251,25 @@ button {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
+  }
+
+  /* Media Queries */
+
+  @media screen and (max-width: 999px) {
+    .article-grid {
+        grid-template-columns: repeat(2, minmax(125px, 1fr));
+        grid-template-rows: repeat(4, minmax(150px, 1.2fr));
+        gap: 10px;
+        width: auto;
+    }
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        gap: 10px;
+    }
+    .container {
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 4fr;
+    }
   }
   
